@@ -60,7 +60,7 @@ sudo chown -R $USER $wodir/Library/Frameworks
 # If the source isn't checked out, check it out.
 if [ ! -d web-cat ] ; then
     mkdir -p web-cat
-    git clone https://github.com/mkhon/web-cat web-cat
+    git clone -q https://github.com/mkhon/web-cat web-cat
 fi
 
 #(cd web-cat/Web-CAT && ant build.subsystems build.redistributable.war)

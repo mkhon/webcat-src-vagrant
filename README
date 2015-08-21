@@ -1,3 +1,24 @@
-This repo contains a working progress for compiling Web-CAT.
+Some notes on compiling Web-CAT with the recent Project Wonder:
 
-Or so I hope.
+1) Bootstrap is modified: WCServletAdaptor now derives from ERXServletAdaptor
+so that ERXApplication.setup() is called during servlet initialization.
+
+This removes the requirement to use hacked JavaWOJSPServlet_client.jar:
+the version shipped with officially distributed web-cat .wars is different
+from stock WebObjects version - it has a patch to call ERXApplication.setup()
+during init().
+
+There is a minor hack in WCServletAdaptor - URLs are added to the existing
+classloader using reflection.
+
+2) There is one more thing left - WebCAT developers kept their fixes for
+Project Wonder in EOJDBCPrototypes.jar (it is loaded before everything else):
+there are some changed project Wonder classes there but they do not match
+the latest project Wonder API so they can not be used. These changed classes
+have some fixes - they may or may not be required with the latest Project Wonder.
+
+Unfortunately WebCAT developers did not track Project Wonder versions so it is
+rather hard to extract their fixes from their patched project Wonder classes.
+But this can be done later.
+
+In the mean time all the patched Project Wonder classes are excluded from the build.

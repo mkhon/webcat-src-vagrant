@@ -4,13 +4,13 @@ set -e
 
 if [ ! -f /usr/bin/javac ] ; then
     # Need to update or else the installs won't work
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -q update
 
     # Downgrade tzdata, hilarious.
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install --force-yes -y tzdata/trusty
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -q install --force-yes -y tzdata/trusty
 
     # Some things we need to build Web-CAT.
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq install -y openjdk-7-jre openjdk-7-jdk ant git
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -q install -y openjdk-7-jre openjdk-7-jdk ant git
 fi
 
 fetch()
@@ -60,7 +60,7 @@ sudo chown -R $USER $wodir/Library/Frameworks
 # If the source isn't checked out, check it out.
 if [ ! -d web-cat ] ; then
     mkdir -p web-cat
-    git clone https://github.com/mkhon/web-cat web-cat
+    git clone -q https://github.com/mkhon/web-cat web-cat
 fi
 
 #(cd web-cat/Web-CAT && ant build.subsystems build.redistributable.war)

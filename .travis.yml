@@ -4,8 +4,6 @@ sudo: required
 jdk:
   - openjdk7
 
-sudo: required
-
 install:
   - ./install.sh 2>&1 > install.log
 

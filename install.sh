@@ -28,11 +28,11 @@ sudo mkdir -p $wodir
 [ -d $wodir/Library/Frameworks/JavaXML.framework ] || (sudo java -jar WOInstaller.jar 5.4.3 $wodir >/dev/null || (sudo rm -rf $wodir && exit 1))
 
 # install Wonder Frameworks
-[ -f Wonder-Frameworks.tar.gz ] || fetch https://jenkins.wocommunity.org/job/Wonder/lastSuccessfulBuild/artifact/Root/Roots/Wonder-Frameworks.tar.gz
+[ -f Wonder-Frameworks.tar.gz ] || fetch https://jenkins.wocommunity.org/job/Wonder7/lastSuccessfulBuild/artifact/Root/Roots/Wonder-Frameworks.tar.gz
 sudo tar xfz Wonder-Frameworks.tar.gz -C $wodir/Library/Frameworks
 
 # woproject.jar
-[ -f woproject.jar ] || fetch http://webobjects.mdimension.com/hudson/job/WOLips36Stable/lastSuccessfulBuild/artifact/woproject.jar
+[ -f woproject.jar ] || fetch http://www.wocommunity.org/tools/woproject.jar
 mkdir -p ~/.ant/lib
 cp woproject.jar ~/.ant/lib
 

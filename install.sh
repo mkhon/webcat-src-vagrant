@@ -3,14 +3,14 @@ cd `dirname $0`
 set -e
 
 if [ ! -f /usr/bin/javac ] ; then
+    # Add openjdk 8 repo
+    sudo add-apt-repository ppa:openjdk-r/ppa
+
     # Need to update or else the installs won't work
     sudo DEBIAN_FRONTEND=noninteractive apt-get -q update
 
-    # Downgrade tzdata, hilarious.
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -q install --force-yes -y tzdata/trusty
-
     # Some things we need to build Web-CAT.
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -q install -y openjdk-7-jre openjdk-7-jdk ant git
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -q install -y openjdk-8-jdk ant git
 fi
 
 fetch()

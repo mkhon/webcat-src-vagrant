@@ -8,4 +8,4 @@ install:
   - ./install.sh 2>&1 > install.log
 
 script:
-  - travis_wait cd web-cat/Web-CAT && ant build.subsystems build.redistributable.war
+  - cd web-cat/Web-CAT && travis_wait ant build.subsystems build.redistributable.war

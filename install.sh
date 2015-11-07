@@ -11,6 +11,9 @@ if [ ! -f /usr/bin/javac ] ; then
 
     # Some things we need to build Web-CAT.
     sudo DEBIAN_FRONTEND=noninteractive apt-get -q install -y openjdk-8-jdk ant git
+
+    # Remove openjdk-7-jre-headless if it is installed
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -q remove -y openjdk-7-jre-headless
 fi
 
 fetch()
